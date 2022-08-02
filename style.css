@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(0, 0, 0);
+}
+#title{
+    text-align: center;
+    color: white;
+    font-size: 45px;
+    padding: 20px 0 20px;
+}
+
+#color-palette{
+    text-align: center;
+}
+
+.color{
+    border: 1px solid black;
+}
+#um{
+    background-color: black;
+}
+#dois{
+    background-color: #4169e1
+}
+#tres{
+    background-color: #008000;
+}
+#quatro{
+    background-color: #FF0000;
+}
+
+#pixel-board{
+    width: 220px;
+    height: 220px;
+    background-color: #818181;
+    margin: 0 auto;
+   }
+.pixel{
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border: 1px black solid;
+    margin: auto;
+}
+.primeira-coluna{
+    position: relative;
+    
+}
+.segunda-coluna{
+    position: relative;
+    left: 42px;
+    top: -210px;
+}
+.terceira-coluna{
+   position: relative;
+   left: 84px;
+   top: -420px;
+}
+.quarta-coluna{
+    position: relative;
+   right: 42px;
+   top: -630px;
+}
+.quinta-coluna{
+    position: relative;
+    right: 84px;
+    top: -840px;
+}
