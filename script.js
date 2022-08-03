@@ -67,7 +67,7 @@ function myFunction(){
 
 
 
-document.getElementsByClassName("reset-button").onclick = resetButton;
+document.getElementsByClassName("clear-board").onclick = resetButton;
 
 function resetButton() {
     for(let index = 0; index < 25; index += 1){
