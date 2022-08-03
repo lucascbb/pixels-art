@@ -15,28 +15,46 @@ let trocaCor = [];
 window.onload = preto
 
 
+
 document.getElementsByClassName("color")[0].onclick = preto;
 
 function preto(){
     selected =  "black"
+    document.getElementsByClassName("color")[0].classList.add('selected')
+    document.getElementsByClassName("color")[1].classList.remove('selected')
+    document.getElementsByClassName("color")[2].classList.remove('selected')
+    document.getElementsByClassName("color")[3].classList.remove('selected')
+
     }
 
 document.getElementsByClassName("color")[1].onclick = azul;
 
 function azul(){
     selected =  "darkblue"
+    document.getElementsByClassName("color")[1].classList.add('selected')
+    document.getElementsByClassName("color")[0].classList.remove('selected')
+    document.getElementsByClassName("color")[2].classList.remove('selected')
+    document.getElementsByClassName("color")[3].classList.remove('selected')
     }
 
 document.getElementsByClassName("color")[2].onclick = laranja;
     
 function laranja(){
     selected =  "orange"
+    document.getElementsByClassName("color")[2].classList.add('selected')
+    document.getElementsByClassName("color")[0].classList.remove('selected')
+    document.getElementsByClassName("color")[1].classList.remove('selected')
+    document.getElementsByClassName("color")[3].classList.remove('selected')
     }
 
 document.getElementsByClassName("color")[3].onclick = verde;
     
 function verde(){
     selected =  "darkgreen"
+    document.getElementsByClassName("color")[3].classList.add('selected')
+    document.getElementsByClassName("color")[0].classList.remove('selected')
+    document.getElementsByClassName("color")[1].classList.remove('selected')
+    document.getElementsByClassName("color")[2].classList.remove('selected')
         }
     
 
