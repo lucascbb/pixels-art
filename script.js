@@ -67,24 +67,6 @@ function myFunction(){
 }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 document.getElementsByClassName("clear-board").onclick = resetButton;
 
 function resetButton() {
@@ -92,3 +74,43 @@ function resetButton() {
     document.getElementsByClassName("pixel")[index].style.backgroundColor = "white";
 }
 }
+
+
+
+
+
+
+
+
+
+// let form = document.getElementById('formulario');
+// let boardSize = document.getElementById('board-size');
+
+// form.addEventListener('submit'){
+//     alert(boardSize.value);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 1) Verifica se nenhum valor for colocado no input ao clicar no botão, um `alert` é exibido com o texto: 'Board inválido!'
+// 2) Verifica se ao clicar no botão com um valor preenchido, o tamanho do board muda.
+// 3) Verifica se o novo quadro tem todos os pixels preenchidos com a cor branca
+
+
