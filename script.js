@@ -14,6 +14,7 @@ document.getElementsByClassName('color')[3].style.backgroundColor = `rgb(${numCo
 
 const pixelBoard = document.getElementById('pixel-board');
 pixelBoard.style.width = '210px';
+pixelBoard.style.height = '210px';
 
 let selected = 'black';
 window.onload = document.getElementsByClassName('color')[0].classList.add('selected');
