@@ -1,77 +1,86 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-body{
-    background-color: rgb(148, 148, 148);
-    text-align: center;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-header{
-    background-color: rgb(0, 0, 0);
-    width: 100%;
-    height: 100px;
-    margin-bottom: 40px;
+body {
+  background-color: rgb(148, 148, 148);
+  text-align: center;
 }
 
-#title{
-    text-align: center;
-    color: white;
-    font-size: 45px;
-    padding: 20px 0 20px;
+header {
+  background-color: black;
+  width: 100%;
+  height: 100px;
+  margin-bottom: 40px;
 }
 
-#color-palette{
-    text-align: center;
+#title {
+  text-align: center;
+  color: white;
+  font-size: 45px;
+  padding: 20px 0;
 }
 
-.color{
-    border: 1px solid black;
-    border-radius: 20px;
-    width: 80px; height: 80px;
-    display: inline-block;    
-    margin: 10px 10px 40px 10px;
+#color-palette {
+  text-align: center;
 }
 
-#pixel-board{
-    margin: 0 auto;
-    height: 200px;
-    width: 200px;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+.color {
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 20px;
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+  margin: 10px;
 }
 
-.pixel{
-    width: 40px;
-    height: 40px;
-    background-color: white;
-    border: 1px black solid;
-    margin: auto;
+#pixel-board {
+  margin: 0 auto;
+  display: flex;
+  width: 462px;
+  flex-flow: row wrap;
+  margin-top: 50px;
+
+  /* display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr); */
 }
-.coluna1{
+
+.pixel {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border: 1px black solid;
+  /* margin: auto; */
+}
+
+/* .coluna1{
     margin-left: -168px;
 }
 .coluna2{
     margin-left: -84px;
     margin-top: -210px;
 }
-.coluna3{
+
+.coluna3 {
     margin-left: 0px;
     margin-top: -210px;
 }
-.coluna4{
+
+.coluna4 {
     margin-left: 84px;
     margin-top: -210px;
 }
-.coluna5{
+
+.coluna5 {
     margin-left: 168px;
     margin-top: -210px;
-}
+} */
 
-#clear-board{
-    padding: 10px 40px 10px 40px;
-    color: rgb(255, 255, 255);
-    margin: 30px 0 30px 0;
-    background-color: rgb(85, 85, 85);
+#clear-board {
+  color: white;
+  background-color: rgb(85, 85, 85);
+  margin: 30px 0;
+  padding: 10px 40px;
 }

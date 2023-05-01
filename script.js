@@ -1,116 +1,110 @@
 document.getElementById('title').innerHTML = 'Paleta de Cores';
 
-document.getElementsByClassName("color")[0].style.backgroundColor = 'black';
-document.getElementsByClassName("color")[1].style.backgroundColor = 'darkblue';
-document.getElementsByClassName("color")[2].style.backgroundColor = 'orange';
-document.getElementsByClassName("color")[3].style.backgroundColor = 'darkgreen';
+const numColors1 = `${Math.floor(Math.random() * 256)}, 
+    ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}`;
+const numColors2 = `${Math.floor(Math.random() * 256)}, 
+    ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}`;
+const numColors3 = `${Math.floor(Math.random() * 256)}, 
+    ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}`;
 
-document.getElementById('pixel-board').style.backgroundColor = "red";
-document.getElementById('pixel-board').style.width= "210px";
-document.getElementById('pixel-board').style.height= "210px";
+document.getElementsByClassName('color')[0].style.backgroundColor = 'rgb(0, 0, 0)';
+document.getElementsByClassName('color')[1].style.backgroundColor = `rgb(${numColors1})`;
+document.getElementsByClassName('color')[2].style.backgroundColor = `rgb(${numColors2})`;
+document.getElementsByClassName('color')[3].style.backgroundColor = `rgb(${numColors3})`;
 
+const pixelBoard = document.getElementById('pixel-board');
+pixelBoard.style.width = '210px';
 
-let trocaCor = [];
+let selected = 'black';
+window.onload = document.getElementsByClassName('color')[0].classList.add('selected');
 
-window.onload = preto
-
-
-
-document.getElementsByClassName("color")[0].onclick = preto;
-
-function preto(){
-    selected =  "black"
-    document.getElementsByClassName("color")[0].classList.add('selected')
-    document.getElementsByClassName("color")[1].classList.remove('selected')
-    document.getElementsByClassName("color")[2].classList.remove('selected')
-    document.getElementsByClassName("color")[3].classList.remove('selected')
-
-    }
-
-document.getElementsByClassName("color")[1].onclick = azul;
-
-function azul(){
-    selected =  "darkblue"
-    document.getElementsByClassName("color")[1].classList.add('selected')
-    document.getElementsByClassName("color")[0].classList.remove('selected')
-    document.getElementsByClassName("color")[2].classList.remove('selected')
-    document.getElementsByClassName("color")[3].classList.remove('selected')
-    }
-
-document.getElementsByClassName("color")[2].onclick = laranja;
-    
-function laranja(){
-    selected =  "orange"
-    document.getElementsByClassName("color")[2].classList.add('selected')
-    document.getElementsByClassName("color")[0].classList.remove('selected')
-    document.getElementsByClassName("color")[1].classList.remove('selected')
-    document.getElementsByClassName("color")[3].classList.remove('selected')
-    }
-
-document.getElementsByClassName("color")[3].onclick = verde;
-    
-function verde(){
-    selected =  "darkgreen"
-    document.getElementsByClassName("color")[3].classList.add('selected')
-    document.getElementsByClassName("color")[0].classList.remove('selected')
-    document.getElementsByClassName("color")[1].classList.remove('selected')
-    document.getElementsByClassName("color")[2].classList.remove('selected')
-        }
-    
-
-for(let index = 0; index < 25; index += 1){
-    let corSelect = [];
-document.getElementsByClassName("pixel")[index].addEventListener("mousemove", myFunction);
-
-function myFunction(){
-    document.getElementsByClassName("pixel")[index].style.backgroundColor = selected;
+function preto() {
+  selected = 'black';
+  document.getElementsByClassName('color')[0].classList.add('selected');
+  document.getElementsByClassName('color')[1].classList.remove('selected');
+  document.getElementsByClassName('color')[2].classList.remove('selected');
+  document.getElementsByClassName('color')[3].classList.remove('selected');
 }
-}
+document.getElementsByClassName('color')[0].onclick = preto;
 
-document.getElementsByClassName("clear-board").onclick = resetButton;
+function azul() {
+  selected = `rgb(${numColors1})`;
+  document.getElementsByClassName('color')[1].classList.add('selected');
+  document.getElementsByClassName('color')[0].classList.remove('selected');
+  document.getElementsByClassName('color')[2].classList.remove('selected');
+  document.getElementsByClassName('color')[3].classList.remove('selected');
+}
+document.getElementsByClassName('color')[1].onclick = azul;
+
+function laranja() {
+  selected = `rgb(${numColors2})`;
+  document.getElementsByClassName('color')[2].classList.add('selected');
+  document.getElementsByClassName('color')[0].classList.remove('selected');
+  document.getElementsByClassName('color')[1].classList.remove('selected');
+  document.getElementsByClassName('color')[3].classList.remove('selected');
+}
+document.getElementsByClassName('color')[2].onclick = laranja;
+
+function verde() {
+  selected = `rgb(${numColors3})`;
+  document.getElementsByClassName('color')[3].classList.add('selected');
+  document.getElementsByClassName('color')[0].classList.remove('selected');
+  document.getElementsByClassName('color')[1].classList.remove('selected');
+  document.getElementsByClassName('color')[2].classList.remove('selected');
+}
+document.getElementsByClassName('color')[3].onclick = verde;
 
 function resetButton() {
-    for(let index = 0; index < 25; index += 1){
-    document.getElementsByClassName("pixel")[index].style.backgroundColor = "white";
+  for (let i = 0; i < document.getElementsByClassName('pixel').length; i += 1) {
+    document.getElementsByClassName('pixel')[i].style.backgroundColor = 'white';
+  }
 }
+
+document.getElementsByClassName('clear-board').onclick = resetButton;
+
+function deleteAllPixels() {
+  const boxes = document.querySelectorAll('.pixel');
+  boxes.forEach((ele) => { ele.remove(); });
 }
 
+function settingPixels(param) {
+  for (let i = 0; i < param * param; i += 1) {
+    const cla = document.createElement('div');
+    cla.className = 'pixel';
+    pixelBoard.appendChild(cla);
+  }
+}
 
+function addPixelListener() {
+  const pixels = document.querySelectorAll('.pixel');
+  pixels.forEach((pixel) => {
+    const currentPixel = pixel;
+    currentPixel.addEventListener('mousemove', () => {
+      currentPixel.style.backgroundColor = selected;
+    });
+  });
+}
 
+function boardPixels() {
+  const valuePixels = Number(document.getElementById('board-size').value);
+  if (!valuePixels) {
+    alert('Board inválido!');
+  } else if (valuePixels >= 50) {
+    deleteAllPixels();
+    settingPixels(50);
+    pixelBoard.style.width = '420px';
+  } else if (valuePixels <= 5) {
+    deleteAllPixels();
+    settingPixels(5);
+    pixelBoard.style.width = '210px';
+  } else {
+    deleteAllPixels();
+    settingPixels(Number(valuePixels));
+    pixelBoard.style.width = `${(valuePixels * 42).toString()}px`;
+  }
+  addPixelListener();
+}
 
+document.getElementById('generate-board').onclick = boardPixels;
 
-
-
-
-
-// let form = document.getElementById('formulario');
-// let boardSize = document.getElementById('board-size');
-
-// form.addEventListener('submit'){
-//     alert(boardSize.value);
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// 1) Verifica se nenhum valor for colocado no input ao clicar no botão, um `alert` é exibido com o texto: 'Board inválido!'
-// 2) Verifica se ao clicar no botão com um valor preenchido, o tamanho do board muda.
-// 3) Verifica se o novo quadro tem todos os pixels preenchidos com a cor branca
-
-
+window.onload = addPixelListener;
