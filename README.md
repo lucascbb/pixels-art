@@ -11,6 +11,14 @@ O projeto possui as seguintes funcionalidades:
 - Permitir ao usuário desenhar e colorir pixels individualmente
 - Permitir ao usuário limpar a tela de desenho
 
+## Tecnologias utilizadas
+
+O projeto foi desenvolvido utilizando as seguintes tecnologias:
+
+- HTML
+- CSS
+- JavaScript
+
 ## Como instalar o projeto
 
 Para instalar o projeto, siga os seguintes passos:
